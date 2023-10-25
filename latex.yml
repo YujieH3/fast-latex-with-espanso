@@ -1,0 +1,19 @@
+# Created by Yujie 'Jay' He
+# Learning to become a LaTeX master.
+
+matches:
+
+# Greek letters
+  - trigger: "\\a"
+    replace: "\\alpha"
+
+  - trigger: "\\s"
+    replace: "\\sigma"
+
+  - trigger: "\\l"
+    replace: "\\lambda"
+
+# Commands
+  - trigger: "\\fr"
+    replace: "\\frac{$|$}{}"
+  
