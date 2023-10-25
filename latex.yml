@@ -3,18 +3,37 @@
 
 matches:
 
+# Quick commands for packages
+  - trigger: ":math"
+    replace: "\\usepackage{amsmath, physics}	% packages for math"
+
 # Greek letters
-  - trigger: "\\a"
+  - trigger: "\\a "
     replace: "\\alpha"
 
-  - trigger: "\\s"
+  - trigger: "\\s "
     replace: "\\sigma"
 
-  - trigger: "\\l"
+  - trigger: "\\l "
     replace: "\\lambda"
 
-# Commands
+  - trigger: "\\th "
+    replace: "\\theta"
+
+  - trigger: "\\ph "
+    replace: "\\phi"
+
+# Fractions
   - trigger: "//"
     replace: "\\frac{$|$}{}"
 
+# Brackets
+  - trigger: "( "
+    replace: "\\left($|$\\right)"
   
+  - trigger: "[ "
+    replace: "\\left[$|$\\right]"
+
+  - trigger: "{ "
+    replace: "\\left\\{$|$\\right\\}"
+
