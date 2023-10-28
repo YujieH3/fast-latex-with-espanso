@@ -1,5 +1,8 @@
 # Created by Yujie 'Jay' He
-# Learning to become a LaTeX master. Inspired by the legendary Gilles Castel. See his blog at https://castel.dev/post/lecture-notes-1/.
+# Inspired by the legendary Gilles Castel.
+# See his blog at https://castel.dev/post/lecture-notes-1/.
+
+undo_backspace: true	# enable backspace to undo triggering
 
 matches:
 
@@ -27,6 +30,12 @@ matches:
   - trigger: "//"
     replace: "\\frac{$|$}{}"
 
+  - trigger: "d//"
+    replace: "\\dfrac{$|$}{}"
+
+  - trigger: "1//"
+    replace: "\\frac{1}{$|$}"
+
 # Brackets
   - trigger: "( "
     replace: "\\left($|$\\right)"
@@ -37,3 +46,13 @@ matches:
   - trigger: "{ "
     replace: "\\left\\{$|$\\right\\}"
 
+# Super/subscripts
+  - trigger: "__"
+    replace: "_{$|$}"
+
+  - trigger: "^^"
+    replace: "^{$|$}"
+
+# Environments
+# - trigger: "\\al " # Somehow this doesn't work
+#   replace: "\\begin{align}\n$|$\n\\end{align}"
