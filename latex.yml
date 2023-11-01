@@ -2,7 +2,7 @@
 # Inspired by the legendary Gilles Castel.
 # See his blog at https://castel.dev/post/lecture-notes-1/.
 
-undo_backspace: true	# enable backspace to undo triggering
+undo_backspace: true	# backspace to undo triggering
 
 matches:
 
@@ -52,6 +52,21 @@ matches:
 
   - trigger: "^^"
     replace: "^{$|$}"
+
+# Derivatives
+  - trigger: "\\d "
+    replace: "\\,\\mathrm{d}"
+  
+  - trigger: "\\p "
+    replace: "\\partial"
+
+  - trigger: "\\pp"
+    replace: "\\frac{\\partial $|$}{\\partial}"
+
+# Fonts
+  - trigger: "rm "
+    replace: "\\mathrm{$|$}"
+
 
 # Environments
 # - trigger: "\\al " # Somehow this doesn't work
