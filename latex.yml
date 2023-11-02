@@ -91,9 +91,6 @@ matches:
     replace: "\\int_0^{$|$}"
 
 # Fonts
-  - trigger: "rm "
+  - trigger: "mr "
     replace: "\\mathrm{$|$}"
 
-# Environments
-# - trigger: "\\al " # Somehow this doesn't work
-#   replace: "\\begin{align}\n$|$\n\\end{align}"
