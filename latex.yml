@@ -2,6 +2,8 @@
 # Inspired by the legendary Gilles Castel.
 # See his blog at https://castel.dev/post/lecture-notes-1/.
 
+# Use this together with latex customization, sometimes it's better to define a \newcommand in .tex rather than here.
+
 undo_backspace: true	# backspace to undo triggering
 
 matches:
@@ -10,9 +12,15 @@ matches:
   - trigger: ":math"
     replace: "\\usepackage{amsmath, physics}	% packages for math"
 
-# Greek letters
+# Greek letters - Extend it only when you have a false trigger.
   - trigger: "\\a "
     replace: "\\alpha"
+
+  - trigger: "\\g "
+    replace: "\\gamma"
+
+  - trigger: "\\e "
+    replace: "\\epsilon"
 
   - trigger: "\\s "
     replace: "\\sigma"
@@ -20,11 +28,24 @@ matches:
   - trigger: "\\l "
     replace: "\\lambda"
 
-  - trigger: "\\th "
+  - trigger: "\\t "
     replace: "\\theta"
 
-  - trigger: "\\ph "
+  - trigger: "\\m "
+    replace: "\\mu"
+
+  - trigger: "\\n "
+    replace: "\\nu"
+
+  - trigger: "\\r "
+    replace: "\\rho"
+
+  - trigger: "\\p "
     replace: "\\phi"
+
+  - trigger: "\\O "
+    replace: "\\Omega"
+
 
 # Fractions
   - trigger: "//"
@@ -53,20 +74,25 @@ matches:
   - trigger: "^^"
     replace: "^{$|$}"
 
-# Derivatives
+# Derivatives and integrals
   - trigger: "\\d "
     replace: "\\,\\mathrm{d}"
   
   - trigger: "\\p "
     replace: "\\partial"
 
-  - trigger: "\\pp"
+  - trigger: "\\pp "
     replace: "\\frac{\\partial $|$}{\\partial}"
+
+  - trigger: "int0inf "
+    replace: "\\int_0^\\infty"
+
+  - trigger: "int0 "
+    replace: "\\int_0^{$|$}"
 
 # Fonts
   - trigger: "rm "
     replace: "\\mathrm{$|$}"
-
 
 # Environments
 # - trigger: "\\al " # Somehow this doesn't work
