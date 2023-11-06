@@ -37,11 +37,17 @@ matches:
   - trigger: "\\n "
     replace: "\\nu"
 
+  - trigger: "\\mn" # mu nu combo
+    replace: "\\mu\\nu"
+
   - trigger: "\\r "
     replace: "\\rho"
 
   - trigger: "\\p "
     replace: "\\phi"
+
+  - trigger: "\\o "
+    replace: "\\omega"
 
   - trigger: "\\O "
     replace: "\\Omega"
@@ -76,13 +82,10 @@ matches:
 
 # Derivatives and integrals
   - trigger: "\\d "
-    replace: "\\,\\mathrm{d}"
+    replace: "\\dd{$|$}"
   
-  - trigger: "\\p "
-    replace: "\\partial"
-
   - trigger: "\\pp "
-    replace: "\\frac{\\partial $|$}{\\partial}"
+    replace: "\\partial"
 
   - trigger: "int0inf "
     replace: "\\int_0^\\infty"
