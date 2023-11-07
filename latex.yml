@@ -12,6 +12,13 @@ matches:
   - trigger: ":math"
     replace: "\\usepackage{amsmath, physics}	% packages for math"
 
+# Math mode
+  - trigger: "$ "
+    replace: "$$|$$"
+
+  - trigger: "$$ "
+    replace: "$$$|$$$"
+
 # Greek letters - Extend it only when you have a false trigger.
   - trigger: "\\a "
     replace: "\\alpha"
@@ -65,12 +72,21 @@ matches:
 
 # Brackets
   - trigger: "( "
-    replace: "\\left($|$\\right)"
-  
+    replace: "($|$)"
+
   - trigger: "[ "
-    replace: "\\left[$|$\\right]"
+    replace: "[$|$]"
 
   - trigger: "{ "
+    replace: "\\{$|$\\}"
+
+  - trigger: "\\( "
+    replace: "\\left($|$\\right)"
+  
+  - trigger: "\\[ "
+    replace: "\\left[$|$\\right]"
+
+  - trigger: "\\{ "
     replace: "\\left\\{$|$\\right\\}"
 
 # Super/subscripts
