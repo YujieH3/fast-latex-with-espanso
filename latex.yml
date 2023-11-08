@@ -8,57 +8,93 @@ undo_backspace: true	# backspace to undo triggering
 
 matches:
 
+# Shortcuts
+  - trigger: ";" # never use it anyway.
+    replace: "\\"
+
 # Quick commands for packages
   - trigger: ":math"
     replace: "\\usepackage{amsmath, physics}	% packages for math"
 
 # Math mode
-  - trigger: "$ "
+  - trigger: "mk"
     replace: "$$|$$"
 
-  - trigger: "$$ "
-    replace: "$$$|$$$"
+  - trigger: "dm"
+    replace: |-
+        $$
+        $|$
+        $$
 
-# Greek letters - Extend it only when you have a false trigger.
-  - trigger: "\\a "
-    replace: "\\alpha"
-
-  - trigger: "\\g "
-    replace: "\\gamma"
-
-  - trigger: "\\e "
-    replace: "\\epsilon"
-
-  - trigger: "\\s "
-    replace: "\\sigma"
-
-  - trigger: "\\l "
-    replace: "\\lambda"
-
-  - trigger: "\\t "
-    replace: "\\theta"
-
-  - trigger: "\\m "
-    replace: "\\mu"
-
-  - trigger: "\\n "
-    replace: "\\nu"
-
-  - trigger: "\\mn" # mu nu combo
-    replace: "\\mu\\nu"
-
-  - trigger: "\\r "
-    replace: "\\rho"
-
-  - trigger: "\\p "
-    replace: "\\phi"
-
-  - trigger: "\\o "
-    replace: "\\omega"
-
-  - trigger: "\\O "
-    replace: "\\Omega"
-
+# Greek letters 
+  - trigger: agg
+    replace: "\\alpha "
+  - trigger: bgg
+    replace: "\\beta "
+  - trigger: Bgg
+    replace: "\\Beta "
+  - trigger: ggg
+    replace: "\\gamma "
+  - trigger: Ggg
+    replace: "\\Gamma "
+  - trigger: dgg
+    replace: "\\delta "
+  - trigger: Dgg
+    replace: "\\Delta "
+  - trigger: egg
+    replace: "\\epsilon "
+  - trigger: eta
+    replace: "\\eta "
+  - trigger: kgg
+    replace: "\\kappa "
+  - trigger: rgg
+    replace: "\\rho "
+  - trigger: thg
+    replace: "\\theta "
+  - trigger: Thg
+    replace: "\\Theta "
+  - trigger: tau
+    replace: "\\tau "
+  - trigger: phi
+    replace: "\\phi "
+  - trigger: Phi
+    replace: "\\Phi "
+  - trigger: zgg
+    replace: "\\zeta "
+  - trigger: lgg
+    replace: "\\lambda "
+  - trigger: Lgg
+    replace: "\\Lambda "
+  - trigger: psi
+    replace: "\\psi "
+  - trigger: Psgg
+    replace: "\\Psi "
+  - trigger: sgg
+    replace: "\\sigma "
+  - trigger: Sgg
+    replace: "\\Sigma "
+  - trigger: cgg
+    replace: "\\chi "
+  - trigger: ogg
+    replace: "\\omega "
+  - trigger: Ogg
+    replace: "\\Omega "
+  - trigger: pgg
+    replace: "\\pi "
+  - trigger: Pgg
+    replace: "\\Pi "
+  - trigger: xgg
+    replace: "\\xi "
+  - trigger: Xgg
+    replace: "\\Xi "
+  - trigger: nug
+    replace: "\\nu "
+  - trigger: mug
+    replace: "\\mu "
+  - trigger: ugg
+    replace: "\\upsilon "
+  - trigger: Ugg
+    replace: "\\Upsilon "
 
 # Fractions
   - trigger: "//"
@@ -80,27 +116,27 @@ matches:
   - trigger: "{ "
     replace: "\\{$|$\\}"
 
-  - trigger: "\\( "
-    replace: "\\left($|$\\right)"
+  - trigger: "(("
+    replace: "\\qty($|$)"
   
-  - trigger: "\\[ "
-    replace: "\\left[$|$\\right]"
+  - trigger: "[["
+    replace: "\\qty[$|$]"
 
-  - trigger: "\\{ "
-    replace: "\\left\\{$|$\\right\\}"
+  - trigger: "{{"
+    replace: "\\qty{$|$}"
 
 # Super/subscripts
-  - trigger: "__"
+  - trigger: "ll"
     replace: "_{$|$}"
 
-  - trigger: "^^"
+  - trigger: "uu"
     replace: "^{$|$}"
 
 # Derivatives and integrals
-  - trigger: "\\d "
+  - trigger: "ddd"
     replace: "\\dd{$|$}"
   
-  - trigger: "\\pp "
+  - trigger: "pp"
     replace: "\\partial"
 
   - trigger: "int0inf "
@@ -109,7 +145,18 @@ matches:
   - trigger: "int0 "
     replace: "\\int_0^{$|$}"
 
-# Fonts
-  - trigger: "mr "
-    replace: "\\mathrm{$|$}"
+# Fonts and symbols
+  - trigger: mrm
+    replace: \mathrm{$|$}
 
+  - trigger: mcl
+    replace: \mathcal{$|$}
+
+  - trigger: "LL"
+    replace: "\\mathcal{L}"
+
+  - trigger: "II"
+    replace: "\\mathbb{1}"
+
+  - trigger: "RR"
+    replace: "\\mathbb{R}"
