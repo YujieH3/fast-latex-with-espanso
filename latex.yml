@@ -1,5 +1,5 @@
 # Created by Yujie 'Jay' He
-# Inspired by the legendary Gilles Castel.
+# Inspired by the legend, Gilles Castel and Masacroso.
 # See his blog at https://castel.dev/post/lecture-notes-1/.
 
 # Use this together with latex customization, sometimes it's better to define a \newcommand in .tex rather than here.
@@ -9,17 +9,21 @@ undo_backspace: true	# backspace to undo triggering
 matches:
 
 # Shortcuts
-  - trigger: ";" # never use it anyway.
+
+  - trigger: ";" # because I can't reach \
     replace: "\\"
 
 # Quick commands for packages
+
   - trigger: ":math"
-    replace: "\\usepackage{amsmath, physics}	% packages for math"
+    replace: "\\usepackage{amsmath, amssymb, physics, tensor}"
+  - trigger: ":margin"
+    replace: "\\usepackage[margin=$|$in]{geometry}"
 
 # Math mode
+
   - trigger: "mk"
     replace: "$$|$$"
-
   - trigger: "dm"
     replace: |-
         $$
@@ -27,6 +31,7 @@ matches:
         $$
 
 # Greek letters 
+
   - trigger: agg
     replace: "\\alpha "
   - trigger: bgg
@@ -97,66 +102,65 @@ matches:
     replace: "\\Upsilon "
 
 # Fractions
+
   - trigger: "//"
     replace: "\\frac{$|$}{}"
-
+  - regex: "\\.(?P<numerator>.*)/"
+    replace: "\\frac{{{numerator}}}{$|$}"
   - trigger: "d//"
     replace: "\\dfrac{$|$}{}"
 
-  - trigger: "1//"
-    replace: "\\frac{1}{$|$}"
-
 # Brackets
+
   - trigger: "( "
-    replace: "($|$)"
-
+    replace: "( $|$ )"
   - trigger: "[ "
-    replace: "[$|$]"
-
+    replace: "[ $|$ ]"
   - trigger: "{ "
-    replace: "\\{$|$\\}"
-
+    replace: "\\{ $|$ \\}"
   - trigger: "(("
-    replace: "\\qty($|$)"
-  
+    replace: "\\qty( $|$ )"
   - trigger: "[["
-    replace: "\\qty[$|$]"
-
+    replace: "\\qty[ $|$ ]"
   - trigger: "{{"
-    replace: "\\qty{$|$}"
+    replace: "\\qty{ $|$ }"
 
 # Super/subscripts
+  
   - trigger: "ll"
     replace: "_{$|$}"
-
   - trigger: "uu"
     replace: "^{$|$}"
 
 # Derivatives and integrals
+  
   - trigger: "ddd"
     replace: "\\dd{$|$}"
-  
   - trigger: "pp"
     replace: "\\partial"
-
   - trigger: "int0inf "
     replace: "\\int_0^\\infty"
-
   - trigger: "int0 "
     replace: "\\int_0^{$|$}"
 
 # Fonts and symbols
+
+  - regex: "vb(?P<v>.*)\\."
+    replace: "\\vb{{{v}}}"
   - trigger: mrm
     replace: \mathrm{$|$}
-
   - trigger: mcl
     replace: \mathcal{$|$}
-
   - trigger: "LL"
     replace: "\\mathcal{L}"
-
   - trigger: "II"
     replace: "\\mathbb{1}"
-
   - trigger: "RR"
     replace: "\\mathbb{R}"
+
+# braket notation
+
+  - trigger: "braa"
+    replace: "\\bra{$|$}"
+  - trigger: "kket"
+    replace: "\\ket{$|$}"
