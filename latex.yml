@@ -3,6 +3,7 @@
 # See his blog at https://castel.dev/post/lecture-notes-1/.
 
 # Use this together with latex customization, sometimes it's better to define a \newcommand in .tex rather than here.
+# If there is any false trigger, edit this file.
 
 undo_backspace: true	# backspace to undo triggering
 
@@ -29,83 +30,88 @@ matches:
         $$
         $|$
         $$
+  - trigger: ":gtr"
+    replace: |-
+        \begin{gather}
+        $|$
+        \end{gather}
 
 # Greek letters 
 
   - trigger: agg
-    replace: "\\alpha "
+    replace: "\\alpha"
   - trigger: bgg
-    replace: "\\beta "
+    replace: "\\beta"
   - trigger: Bgg
-    replace: "\\Beta "
+    replace: "\\Beta"
   - trigger: ggg
-    replace: "\\gamma "
+    replace: "\\gamma"
   - trigger: Ggg
-    replace: "\\Gamma "
+    replace: "\\Gamma"
   - trigger: dgg
-    replace: "\\delta "
+    replace: "\\delta"
   - trigger: Dgg
-    replace: "\\Delta "
+    replace: "\\Delta"
   - trigger: egg
-    replace: "\\epsilon "
-  - trigger: eta
-    replace: "\\eta "
+    replace: "\\epsilon"
+  - trigger: etg
+    replace: "\\eta"
   - trigger: kgg
-    replace: "\\kappa "
+    replace: "\\kappa"
   - trigger: rgg
-    replace: "\\rho "
+    replace: "\\rho"
   - trigger: thg
-    replace: "\\theta "
+    replace: "\\theta"
   - trigger: Thg
-    replace: "\\Theta "
-  - trigger: tau
-    replace: "\\tau "
-  - trigger: phi
-    replace: "\\phi "
-  - trigger: Phi
-    replace: "\\Phi "
+    replace: "\\Theta"
+  - trigger: tag
+    replace: "\\tau"
+  - trigger: phg
+    replace: "\\phi"
+  - trigger: Phg
+    replace: "\\Phi"
   - trigger: zgg
-    replace: "\\zeta "
+    replace: "\\zeta"
   - trigger: lgg
-    replace: "\\lambda "
+    replace: "\\lambda"
   - trigger: Lgg
-    replace: "\\Lambda "
-  - trigger: psi
-    replace: "\\psi "
+    replace: "\\Lambda"
+  - trigger: psg
+    replace: "\\psi"
   - trigger: Psgg
-    replace: "\\Psi "
+    replace: "\\Psi"
   - trigger: sgg
-    replace: "\\sigma "
+    replace: "\\sigma"
   - trigger: Sgg
-    replace: "\\Sigma "
+    replace: "\\Sigma"
   - trigger: cgg
-    replace: "\\chi "
+    replace: "\\chi"
   - trigger: ogg
-    replace: "\\omega "
+    replace: "\\omega"
   - trigger: Ogg
-    replace: "\\Omega "
+    replace: "\\Omega"
   - trigger: pgg
-    replace: "\\pi "
+    replace: "\\pi"
   - trigger: Pgg
-    replace: "\\Pi "
+    replace: "\\Pi"
   - trigger: xgg
-    replace: "\\xi "
+    replace: "\\xi"
   - trigger: Xgg
-    replace: "\\Xi "
+    replace: "\\Xi"
   - trigger: nug
-    replace: "\\nu "
+    replace: "\\nu"
   - trigger: mug
-    replace: "\\mu "
+    replace: "\\mu"
   - trigger: ugg
-    replace: "\\upsilon "
+    replace: "\\upsilon"
   - trigger: Ugg
-    replace: "\\Upsilon "
+    replace: "\\Upsilon"
 
 # Fractions
 
   - trigger: "//"
     replace: "\\frac{$|$}{}"
-  - regex: "\\.(?P<numerator>.*)/"
+  - regex: "(?P<numerator>.\\d{1})/"
     replace: "\\frac{{{numerator}}}{$|$}"
   - trigger: "d//"
     replace: "\\dfrac{$|$}{}"
@@ -113,39 +119,39 @@ matches:
 # Brackets
 
   - trigger: "( "
-    replace: "( $|$ )"
+    replace: "($|$)"
   - trigger: "[ "
-    replace: "[ $|$ ]"
+    replace: "[$|$]"
   - trigger: "{ "
-    replace: "\\{ $|$ \\}"
-  - trigger: "(("
-    replace: "\\qty( $|$ )"
-  - trigger: "[["
-    replace: "\\qty[ $|$ ]"
-  - trigger: "{{"
-    replace: "\\qty{ $|$ }"
+    replace: "\\{$|$\\}"
+  - trigger: "(( "
+    replace: "\\qty($|$)"
+  - trigger: "[[ "
+    replace: "\\qty[$|$]"
+  - trigger: "{{ "
+    replace: "\\qty{$|$}"
 
 # Super/subscripts
   
-  - trigger: "ll"
+  - trigger: "__"
     replace: "_{$|$}"
-  - trigger: "uu"
+  - trigger: "^^"
     replace: "^{$|$}"
 
 # Derivatives and integrals
   
-  - trigger: "ddd"
+  - trigger: "dd "
     replace: "\\dd{$|$}"
-  - trigger: "pp"
+  - trigger: "pp "
     replace: "\\partial"
-  - trigger: "int0inf "
-    replace: "\\int_0^\\infty"
-  - trigger: "int0 "
-    replace: "\\int_0^{$|$}"
+  - regex: "int(?P<dim>\\d{1})(?P<x>\\D{1})"
+    replace: "\\int\\dd[{{dim}}]{{{x}}}"
+  - regex: "int(?P<x>\\D{1})"
+    replace: "\\int\\dd{{{x}}}"
 
 # Fonts and symbols
 
-  - regex: "vb(?P<v>.*)\\."
+  - regex: "vb(?P<v>\\D{1})"
     replace: "\\vb{{{v}}}"
   - trigger: mrm
     replace: \mathrm{$|$}
