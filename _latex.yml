@@ -140,13 +140,13 @@ matches:
 
 # Derivatives and integrals
   
-  - trigger: "dd "
-    replace: "\\dd{$|$}"
+  - trigger: "ddd"
+    replace: "\\mathrm{d}$|$"
   - trigger: "pp "
     replace: "\\partial"
-  - regex: "int(?P<dim>\\d{1})(?P<x>\\D{1})"
+  - regex: "doint(?P<dim>\\d{1})(?P<x>\\D{1})"
     replace: "\\int\\dd[{{dim}}]{{{x}}}"
-  - regex: "int(?P<x>\\D{1})"
+  - regex: "doint(?P<x>\\D{1})"
     replace: "\\int\\dd{{{x}}}"
 
 # Fonts and symbols
