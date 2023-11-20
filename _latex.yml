@@ -36,82 +36,11 @@ matches:
         $|$
         \end{gather}
 
-# Greek letters 
-
-  - trigger: agg
-    replace: "\\alpha"
-  - trigger: bgg
-    replace: "\\beta"
-  - trigger: Bgg
-    replace: "\\Beta"
-  - trigger: ggg
-    replace: "\\gamma"
-  - trigger: Ggg
-    replace: "\\Gamma"
-  - trigger: dgg
-    replace: "\\delta"
-  - trigger: Dgg
-    replace: "\\Delta"
-  - trigger: egg
-    replace: "\\epsilon"
-  - trigger: etg
-    replace: "\\eta"
-  - trigger: kgg
-    replace: "\\kappa"
-  - trigger: rgg
-    replace: "\\rho"
-  - trigger: thg
-    replace: "\\theta"
-  - trigger: Thg
-    replace: "\\Theta"
-  - trigger: tag
-    replace: "\\tau"
-  - trigger: phg
-    replace: "\\phi"
-  - trigger: Phg
-    replace: "\\Phi"
-  - trigger: zgg
-    replace: "\\zeta"
-  - trigger: lgg
-    replace: "\\lambda"
-  - trigger: Lgg
-    replace: "\\Lambda"
-  - trigger: psg
-    replace: "\\psi"
-  - trigger: Psgg
-    replace: "\\Psi"
-  - trigger: sgg
-    replace: "\\sigma"
-  - trigger: Sgg
-    replace: "\\Sigma"
-  - trigger: cgg
-    replace: "\\chi"
-  - trigger: ogg
-    replace: "\\omega"
-  - trigger: Ogg
-    replace: "\\Omega"
-  - trigger: pgg
-    replace: "\\pi"
-  - trigger: Pgg
-    replace: "\\Pi"
-  - trigger: xgg
-    replace: "\\xi"
-  - trigger: Xgg
-    replace: "\\Xi"
-  - trigger: nug
-    replace: "\\nu"
-  - trigger: mug
-    replace: "\\mu"
-  - trigger: ugg
-    replace: "\\upsilon"
-  - trigger: Ugg
-    replace: "\\Upsilon"
-
 # Fractions
 
   - trigger: "//"
     replace: "\\frac{$|$}{}"
-  - regex: "(?P<numerator>.\\d{1})/"
+  - regex: "(?P<numerator>\\d{1})/"
     replace: "\\frac{{{numerator}}}{$|$}"
   - trigger: "d//"
     replace: "\\dfrac{$|$}{}"
@@ -151,8 +80,8 @@ matches:
 
 # Fonts and symbols
 
-  - regex: "vb(?P<v>\\D{1})"
-    replace: "\\vb{{{v}}}"
+  - regex: "vb(?P<v>[a-z])"
+    replace: "\\vb*{{{v}}}"
   - trigger: mrm
     replace: \mathrm{$|$}
   - trigger: mcl
