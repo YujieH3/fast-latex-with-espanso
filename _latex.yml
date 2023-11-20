@@ -81,7 +81,7 @@ matches:
 # Fonts and symbols
 
   - regex: "vb(?P<v>[a-z])"
-    replace: "\\vb*{{{v}}}"
+    replace: "\\vb{{{v}}}"
   - trigger: mrm
     replace: \mathrm{$|$}
   - trigger: mcl
